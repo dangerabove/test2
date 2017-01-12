@@ -1,0 +1,12 @@
+sprite = game.add.sprite(startx, starty, 'player');
+
+ game.physics.arcade.enable(sprite);
+
+
+ this.boi = game.add.sprite(this.game.world.centerX, this.game.world.centerY, 'testsprite');
+   console.log('sprite_imported');
+ this.boi.anchor.setTo(0.5, 0.5);
+   console.log('anchor_set');
+ this.boi.scale.setTo(3, 3);
+   console.log('sprite_scaled');
+ game.physics.arcade.enable(testsprite);
