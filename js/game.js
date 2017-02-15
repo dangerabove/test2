@@ -4,8 +4,6 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO);
 
 console.log('boot_message');
 
-var meteor;
-
 var GameState = {
   preload: function() {
     this.load.image('testsprite', 'obj/boi.png');
@@ -24,23 +22,20 @@ var GameState = {
       boi.scale.setTo(3, 3);
       boi.anchor.setTo(0.5, 0.5);
 
-      meteor = game.add.group()
-    
-      game.physics.enable([boi,meteor], Phaser.Physics.ARCADE);
-    
         for (var i = 0; i < 15; i++)
     {
-        meteor.create(game.world.randomX, game.world.randomY, 'meteor');
+        meteor = game.add.sprite(game.world.randomX, game.world.randomY, 'meteor');
         rand = game.rnd.realInRange(2, 6);
         meteor.scale.setTo(rand, rand);
-        meteor.anchor.setTo(0.5, 0.5);
-        meteor.body.setSize(12, 12, 0, 0);
-        meteor.body.immovable = true;
     }
         console.log('objects_imported')
 
+      game.physics.enable([boi,meteor], Phaser.Physics.ARCADE);
         console.log('objects_physic_enabled');
       boi.body.setSize(12, 12, 0, 0);
+      meteor.body.setSize(12, 12, 0, 0);
+      meteor.body.immovable = true;
+      meteor.anchor.setTo(0.5, 0.5);
       boi.body.collideWorldBounds = true;
         console.log('hitboxes_created');
 
