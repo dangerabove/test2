@@ -26,20 +26,21 @@ var GameState = {
 
       meteor = game.add.group()
     
+      game.physics.enable([boi,meteor], Phaser.Physics.ARCADE);
+    
         for (var i = 0; i < 15; i++)
     {
         meteor.create(game.world.randomX, game.world.randomY, 'meteor');
         rand = game.rnd.realInRange(2, 6);
         meteor.scale.setTo(rand, rand);
+        meteor.anchor.setTo(0.5, 0.5);
+        meteor.body.setSize(12, 12, 0, 0);
+        meteor.body.immovable = true;
     }
         console.log('objects_imported')
 
-      game.physics.enable([boi,meteor], Phaser.Physics.ARCADE);
         console.log('objects_physic_enabled');
       boi.body.setSize(12, 12, 0, 0);
-      meteor.anchor.setTo(0.5, 0.5);
-      meteor.body.setSize(12, 12, 0, 0);
-      meteor.body.immovable = true;
       boi.body.collideWorldBounds = true;
         console.log('hitboxes_created');
 
