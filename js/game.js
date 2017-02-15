@@ -37,9 +37,9 @@ var GameState = {
       game.physics.enable([boi,meteor], Phaser.Physics.ARCADE);
         console.log('objects_physic_enabled');
       boi.body.setSize(12, 12, 0, 0);
+      meteor.anchor.setTo(0.5, 0.5);
       meteor.body.setSize(12, 12, 0, 0);
       meteor.body.immovable = true;
-      meteor.anchor.setTo(0.5, 0.5);
       boi.body.collideWorldBounds = true;
         console.log('hitboxes_created');
 
